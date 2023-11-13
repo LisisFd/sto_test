@@ -1,4 +1,5 @@
 import 'package:app_main/config/config.dart';
+import 'package:app_main/logic/controllers_set_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,13 +20,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     );
   }
 
-  static Widget create({required Widget child}) {
-    return BlocProvider(
-      create: (context) => ThemeBloc(),
-      child: child,
-    );
-  }
-
   ThemeBloc() : super(const ThemeInitial(_initialTheme)) {
     on<ThemeUpdateEvent>((event, emit) {
       ITheme theme = state.theme;
@@ -36,5 +30,11 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
       }
       emit(ThemeUpdateState(theme));
     });
+  }
+}
+
+extension ThemeBlocExtension on ControllersSetUp {
+  addThemeProvider() {
+    addProvider<ThemeBloc>((context) => ThemeBloc());
   }
 }

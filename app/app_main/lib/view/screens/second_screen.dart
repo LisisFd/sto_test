@@ -1,12 +1,24 @@
 import 'package:app_main/config/config.dart';
-import 'package:app_main/controllers/controllers.dart';
 import 'package:app_main/localization.dart';
+import 'package:app_main/logic/logic.dart';
 import 'package:flutter/material.dart';
 
 import '../view.dart';
 
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key});
+
+  @override
+  State<SecondScreen> createState() => _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> {
+  int? _year;
+  void _onChanged(int newYear) {
+    setState(() {
+      _year = newYear;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +26,7 @@ class SecondScreen extends StatelessWidget {
     final ITheme theme = ThemeBloc.getCurrentTheme(context);
     final TextTheme textTheme = theme.getTheme().textTheme;
     final Size deviceSize = MediaQuery.of(context).size;
-
+    final int? year = _year;
     return ScaffoldMyApp(
       body: Center(
         child: Column(
@@ -26,10 +38,18 @@ class SecondScreen extends StatelessWidget {
             ),
             SizedBox(
               height: deviceSize.height / 2,
-              child: const AppYearPicker(),
+              child: AppYearPicker(
+                onChanged: _onChanged,
+              ),
             ),
             GradientButton(
               title: localization.titleButtonNext,
+              onPressed: year == null
+                  ? null
+                  : () => NavigationBloc.navigateToResultScreen(
+                        context: context,
+                        year: year,
+                      ),
             ),
           ],
         ),
