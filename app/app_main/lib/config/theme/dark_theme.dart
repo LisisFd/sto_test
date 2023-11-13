@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'i_theme.dart';
 
 final class DarkTheme extends BaseTheme {
-  DarkTheme({super.brightness = Brightness.dark});
+  const DarkTheme({super.brightness = Brightness.dark});
 
   @override
   ThemeData getTheme() {
@@ -14,8 +14,21 @@ final class DarkTheme extends BaseTheme {
       appBarTheme: appBarTheme,
       useMaterial3: true,
       textTheme: textTheme,
-      iconTheme: const IconThemeData(color: ThemeConstatnts.iconDark),
-      cardColor: ThemeConstatnts.cardDark,
+      iconButtonTheme: const IconButtonThemeData(
+        style: ButtonStyle(
+          foregroundColor:
+              MaterialStatePropertyAll<Color>(ThemeConstatnts.cardDark),
+          backgroundColor:
+              MaterialStatePropertyAll<Color>(ThemeConstatnts.iconDark),
+        ),
+      ),
+      iconTheme: const IconThemeData(
+        color: ThemeConstatnts.iconDark,
+      ),
+      cardTheme: const CardTheme(
+        elevation: 0,
+        color: ThemeConstatnts.cardDark,
+      ),
     );
   }
 }

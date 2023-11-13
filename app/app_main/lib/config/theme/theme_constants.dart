@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/cupertino.dart';
 
 final class ThemeConstatnts {
   /// All constants colors in dark theme is a сomplementary light theme colors
@@ -15,4 +15,6 @@ final class ThemeConstatnts {
   static const cardDark = Color(0xFFEFFFFF);
   static const iconLigth = Color(0xFF53538A);
   static const iconDark = Color(0xFF8A8A53);
+  static const EdgeInsets defaultCardPadding =
+      EdgeInsets.symmetric(vertical: 20, horizontal: 10);
 }

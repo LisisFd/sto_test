@@ -1,5 +1,3 @@
-import 'package:app_main/config/config.dart';
-import 'package:app_main/controllers/controllers.dart';
 import 'package:app_main/localization.dart';
 import 'package:flutter/material.dart';
 
@@ -11,25 +9,29 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final localization = context.localization();
-    final ITheme theme = ThemeBloc.getCurrentTheme(context);
-    final TextTheme textTheme = theme.getTheme().textTheme;
+    const padding = SizedBox(
+      height: 50,
+    );
     return ScaffoldMyApp(
-      body: Column(
+      body: Stack(
         children: [
-          Card(
+          Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  localization.titleCardPeriod,
-                  style: textTheme.titleSmall,
+                NavigationCard(
+                  title: localization.titleCardPeriod,
+                  subtitle: localization.descriptionCardPeriod,
                 ),
-                Text(
-                  localization.descriptionCardPeriod,
-                  style: textTheme.labelMedium,
+                padding,
+                NavigationCard(
+                  title: localization.titleCardPregnant,
+                  subtitle: localization.descriptionCardPregnant,
                 ),
               ],
             ),
           ),
+          const BackgroundWidget(),
         ],
       ),
     );

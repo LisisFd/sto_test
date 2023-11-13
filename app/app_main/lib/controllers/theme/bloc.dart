@@ -6,6 +6,7 @@ import 'event.dart';
 import 'state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
+  static const ITheme _initialTheme = LightTheme();
   static ITheme getCurrentTheme(BuildContext context) {
     return BlocProvider.of<ThemeBloc>(context).state.theme;
   }
@@ -25,13 +26,13 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
     );
   }
 
-  ThemeBloc() : super(ThemeInitial(DarkTheme())) {
+  ThemeBloc() : super(const ThemeInitial(_initialTheme)) {
     on<ThemeUpdateEvent>((event, emit) {
       ITheme theme = state.theme;
       if (theme is DarkTheme) {
-        theme = LightTheme();
+        theme = const LightTheme();
       } else {
-        theme = DarkTheme();
+        theme = const DarkTheme();
       }
       emit(ThemeUpdateState(theme));
     });

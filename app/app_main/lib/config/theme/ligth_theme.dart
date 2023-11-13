@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'i_theme.dart';
 
 final class LightTheme extends BaseTheme {
-  LightTheme({super.brightness = Brightness.light});
+  const LightTheme({super.brightness = Brightness.light});
 
   @override
   ThemeData getTheme() {
@@ -12,14 +12,26 @@ final class LightTheme extends BaseTheme {
         ColorScheme.light(background: ThemeConstatnts.backgroundLigth);
 
     return ThemeData(
-        colorScheme: colorScheme,
-        appBarTheme: appBarTheme,
-        useMaterial3: true,
-        textTheme: textTheme,
-        iconTheme: const IconThemeData(
-          color: ThemeConstatnts.iconLigth,
+      colorScheme: colorScheme,
+      appBarTheme: appBarTheme,
+      useMaterial3: true,
+      textTheme: textTheme,
+      iconButtonTheme: const IconButtonThemeData(
+        style: ButtonStyle(
+          foregroundColor:
+              MaterialStatePropertyAll<Color>(ThemeConstatnts.cardLigth),
+          backgroundColor:
+              MaterialStatePropertyAll<Color>(ThemeConstatnts.iconLigth),
         ),
-        cardColor: ThemeConstatnts.cardLigth);
+      ),
+      iconTheme: const IconThemeData(
+        color: ThemeConstatnts.iconLigth,
+      ),
+      cardTheme: const CardTheme(
+        elevation: 0,
+        color: ThemeConstatnts.cardLigth,
+      ),
+    );
   }
 
   @override
