@@ -126,6 +126,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log in your date of birth'**
   String get titleBirthDay;
+
+  /// No description provided for @titleButtonNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get titleButtonNext;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

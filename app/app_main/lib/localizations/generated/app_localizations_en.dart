@@ -21,4 +21,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get titleBirthDay => 'Log in your date of birth';
+
+  @override
+  String get titleButtonNext => 'Next';
 }

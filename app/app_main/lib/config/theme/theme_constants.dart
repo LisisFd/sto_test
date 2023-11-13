@@ -9,6 +9,7 @@ final class ThemeConstatnts {
   /// backgroundLight = Color(0xFFFFFFFF) -> backgroundDark = Color(0x0000000)
 
   const ThemeConstatnts._();
+  static const double appWidth = 390.0;
   static const backgroundLigth = Color(0xFFFFFFFF);
   static const backgroundDark = Color(0x00000000);
   static const cardLigth = Color(0xFFFFEFEF);
