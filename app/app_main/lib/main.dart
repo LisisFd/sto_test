@@ -1,6 +1,7 @@
-import 'package:app_main/controllers/controllers.dart';
 import 'package:app_main/localization.dart';
 import 'package:app_main/localizations/generated/app_localizations.dart';
+import 'package:app_main/logic/controllers_set_up.dart';
+import 'package:app_main/logic/logic.dart';
 import 'package:app_main/view/view.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget materialApp = ThemeBloc.create(
+    final ControllersSetUp controllersSetUp = ControllersSetUp.instance;
+    _runDependencyInjection(controllersSetUp);
+
+    Widget materialApp = controllersSetUp.createProvidersScope(
       child: ThemeBloc.build(
         builder: (context, state) {
           return MaterialApp(
@@ -19,15 +23,16 @@ class MyApp extends StatelessWidget {
             supportedLocales: const [
               Locale('en'),
             ],
-            home: const LocaleListenerWidget(
-                child: ResultScreen(
-              status: 'Pregant',
-              year: '2000',
-            )),
+            home: const FirstScreen(),
           );
         },
       ),
     );
     return materialApp;
+  }
+
+  void _runDependencyInjection(ControllersSetUp instance) {
+    instance.addThemeProvider();
+    instance.addNavigationProvider();
   }
 }

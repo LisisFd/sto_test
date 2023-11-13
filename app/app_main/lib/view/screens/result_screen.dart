@@ -1,6 +1,6 @@
 import 'package:app_main/config/config.dart';
-import 'package:app_main/controllers/controllers.dart';
 import 'package:app_main/localization.dart';
+import 'package:app_main/logic/logic.dart';
 import 'package:flutter/material.dart';
 
 import '../view.dart';

@@ -1,7 +1,7 @@
 import 'package:app_main/config/theme/i_theme.dart';
 import 'package:flutter/material.dart';
 
-import '../../controllers/controllers.dart';
+import '../../logic/logic.dart';
 import 'background_widget.dart';
 
 class ScaffoldMyApp extends StatelessWidget {

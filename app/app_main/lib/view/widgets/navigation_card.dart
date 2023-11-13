@@ -1,7 +1,7 @@
 import 'package:app_main/config/config.dart';
 import 'package:flutter/material.dart';
 
-import '../../controllers/theme/theme.dart';
+import '../../logic/logic.dart';
 
 class NavigationCard extends StatelessWidget {
   final String title;
