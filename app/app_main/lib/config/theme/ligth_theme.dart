@@ -1,13 +1,15 @@
+import 'package:app_main/config/theme/theme_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'i_theme.dart';
 
 final class LightTheme extends BaseTheme {
-  LightTheme({super.brightness = Brightness.light});
+  const LightTheme({super.brightness = Brightness.light});
 
   @override
   ThemeData getTheme() {
-    const ColorScheme colorScheme = ColorScheme.dark(background: Colors.white);
+    const ColorScheme colorScheme =
+        ColorScheme.light(background: ThemeConstatnts.backgroundLigth);
 
     return ThemeData(
       colorScheme: colorScheme,
@@ -16,11 +18,18 @@ final class LightTheme extends BaseTheme {
       textTheme: textTheme,
       iconButtonTheme: const IconButtonThemeData(
         style: ButtonStyle(
-          foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
+          foregroundColor:
+              MaterialStatePropertyAll<Color>(ThemeConstatnts.cardLigth),
+          backgroundColor:
+              MaterialStatePropertyAll<Color>(ThemeConstatnts.iconLigth),
         ),
       ),
       iconTheme: const IconThemeData(
-        color: Colors.black,
+        color: ThemeConstatnts.iconLigth,
+      ),
+      cardTheme: const CardTheme(
+        elevation: 0,
+        color: ThemeConstatnts.cardLigth,
       ),
     );
   }
@@ -54,10 +63,4 @@ final class LightTheme extends BaseTheme {
         bodyLarge: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),
         bodyMedium: TextStyle(color: Colors.black, fontSize: 15),
       );
-
-  @override
-  BlurColors getBlur() {
-    return const BlurColors(
-        first: Color(0xFFB8B23B), second: Color(0xFF40BBFF));
-  }
 }

@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class BlurColors {
-  final Color first;
-  final Color second;
-  const BlurColors({required this.first, required this.second});
-}
-
 abstract interface class ITheme {
   final Brightness brightness;
 
-  ITheme({required this.brightness});
+  const ITheme({required this.brightness});
   ThemeData getTheme();
-  BlurColors getBlur();
 }
 
 abstract base class BaseTheme extends ITheme {
-  BaseTheme({required super.brightness});
+  const BaseTheme({required super.brightness});
 
   AppBarTheme get appBarTheme => AppBarTheme(
         color: Colors.transparent,
