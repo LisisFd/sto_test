@@ -19,7 +19,11 @@ class MyApp extends StatelessWidget {
             supportedLocales: const [
               Locale('en'),
             ],
-            home: const LocaleListenerWidget(child: SecondScreen()),
+            home: const LocaleListenerWidget(
+                child: ResultScreen(
+              status: 'Pregant',
+              year: '2000',
+            )),
           );
         },
       ),

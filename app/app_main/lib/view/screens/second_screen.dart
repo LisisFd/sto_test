@@ -16,28 +16,23 @@ class SecondScreen extends StatelessWidget {
     final Size deviceSize = MediaQuery.of(context).size;
 
     return ScaffoldMyApp(
-      body: Stack(
-        children: [
-          const BackgroundWidget(),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  localization.titleBirthDay,
-                  style: textTheme.titleSmall,
-                ),
-                SizedBox(
-                  height: deviceSize.height / 2,
-                  child: const AppYearPicker(),
-                ),
-                GradientButton(
-                  title: localization.titleButtonNext,
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              localization.titleBirthDay,
+              style: textTheme.titleSmall,
             ),
-          ),
-        ],
+            SizedBox(
+              height: deviceSize.height / 2,
+              child: const AppYearPicker(),
+            ),
+            GradientButton(
+              title: localization.titleButtonNext,
+            ),
+          ],
+        ),
       ),
     );
   }

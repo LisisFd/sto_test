@@ -13,26 +13,21 @@ class FirstScreen extends StatelessWidget {
       height: 50,
     );
     return ScaffoldMyApp(
-      body: Stack(
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                NavigationCard(
-                  title: localization.titleCardPeriod,
-                  subtitle: localization.descriptionCardPeriod,
-                ),
-                padding,
-                NavigationCard(
-                  title: localization.titleCardPregnant,
-                  subtitle: localization.descriptionCardPregnant,
-                ),
-              ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            NavigationCard(
+              title: localization.titleCardPeriod,
+              subtitle: localization.descriptionCardPeriod,
             ),
-          ),
-          const BackgroundWidget(),
-        ],
+            padding,
+            NavigationCard(
+              title: localization.titleCardPregnant,
+              subtitle: localization.descriptionCardPregnant,
+            ),
+          ],
+        ),
       ),
     );
   }

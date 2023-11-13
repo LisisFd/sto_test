@@ -2,6 +2,7 @@ import 'package:app_main/config/theme/i_theme.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/controllers.dart';
+import 'background_widget.dart';
 
 class ScaffoldMyApp extends StatelessWidget {
   final Widget body;
@@ -14,7 +15,12 @@ class ScaffoldMyApp extends StatelessWidget {
 
     return Scaffold(
       appBar: null,
-      body: body,
+      body: Stack(
+        children: [
+          const BackgroundWidget(),
+          body,
+        ],
+      ),
       backgroundColor: theme.getTheme().colorScheme.background,
     );
   }
