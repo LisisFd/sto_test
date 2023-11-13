@@ -1,22 +1,17 @@
-import 'package:app_main/config/config.dart';
+import 'package:app_main/domain/domain.dart';
 import 'package:app_main/localization.dart';
-import 'package:app_main/logic/logic.dart';
 import 'package:flutter/material.dart';
 
 import '../view.dart';
 
 class ResultScreen extends StatelessWidget {
-  final String status;
+  final ScreenType status;
   final String year;
   const ResultScreen({super.key, required this.status, required this.year});
 
   @override
   Widget build(BuildContext context) {
     final localization = context.localization();
-    final ITheme theme = ThemeBloc.getCurrentTheme(context);
-    final TextTheme textTheme = theme.getTheme().textTheme;
-    final Size deviceSize = MediaQuery.of(context).size;
-
     return ScaffoldMyApp(
       body: Center(
         child: Container(
@@ -26,7 +21,7 @@ class ResultScreen extends StatelessWidget {
             children: [
               TextFormField(
                 enabled: false,
-                initialValue: status,
+                initialValue: status.name(localization),
               ),
               const SizedBox(
                 height: 20,

@@ -6,8 +6,8 @@ class ControllersSetUp {
   static final ControllersSetUp instance = ControllersSetUp._constructor();
 
   final List<BlocProvider> _providers = [];
-  void addProvider(Bloc Function(BuildContext context) factory) {
-    _providers.add(BlocProvider(create: factory));
+  void addProvider<T extends Bloc>(T Function(BuildContext context) factory) {
+    _providers.add(BlocProvider<T>(create: factory));
   }
 
   Widget createProvidersScope({required Widget child}) {

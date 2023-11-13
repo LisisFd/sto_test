@@ -1,2 +1,3 @@
 //GENERATED BARREL FILE
-export 'bloc.dart';
+export 'app_navigation_wrapper.dart';
+export 'bloc/bloc.dart';

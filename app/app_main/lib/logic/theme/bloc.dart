@@ -35,6 +35,6 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
 
 extension ThemeBlocExtension on ControllersSetUp {
   addThemeProvider() {
-    addProvider((context) => ThemeBloc());
+    addProvider<ThemeBloc>((context) => ThemeBloc());
   }
 }

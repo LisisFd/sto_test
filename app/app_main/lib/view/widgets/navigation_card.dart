@@ -1,4 +1,5 @@
 import 'package:app_main/config/config.dart';
+import 'package:app_main/domain/domain.dart';
 import 'package:flutter/material.dart';
 
 import '../../logic/logic.dart';
@@ -6,9 +7,15 @@ import '../../logic/logic.dart';
 class NavigationCard extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Function()? onTap;
-  const NavigationCard(
-      {super.key, required this.title, required this.subtitle, this.onTap});
+  final ScreenType screenType;
+  final Function(BuildContext context, ScreenType type)? onTap;
+  const NavigationCard({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    this.onTap,
+    required this.screenType,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class NavigationCard extends StatelessWidget {
       width: 20,
     );
     return GestureDetector(
-      onTap: onTap,
+      onTap: () => onTap?.call(context, screenType),
       child: Card(
         child: Padding(
           padding: ThemeConstatnts.defaultCardPadding,

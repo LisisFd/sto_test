@@ -1,22 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AppYearPicker extends StatefulWidget {
-  const AppYearPicker({super.key});
+class AppYearPicker extends StatelessWidget {
+  final void Function(int year)? onChanged;
+  AppYearPicker({super.key, this.onChanged});
 
-  @override
-  State<AppYearPicker> createState() => _AppYearPickerState();
-}
-
-class _AppYearPickerState extends State<AppYearPicker> {
-  int _year = 0;
   final List<int> _years =
       List.generate(71, (index) => DateTime.now().year - 70 + index);
 
   void _updateDate(int newYear) {
-    setState(() {
-      _year = _years[newYear];
-    });
+    onChanged?.call(_years[newYear]);
   }
 
   @override
@@ -35,6 +28,5 @@ class _AppYearPickerState extends State<AppYearPicker> {
       onSelectedItemChanged: _updateDate,
       children: years,
     );
-    ;
   }
 }

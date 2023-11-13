@@ -12,7 +12,18 @@ class ScaffoldMyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ITheme theme = ThemeBloc.getCurrentTheme(context);
-
+    // var result = switch (state) {
+    // NavigationFirstScreen() => true,
+    // NavigationSecondScreen() => () {
+    // NavigationBloc.navigateToFirstScreen(context: context);
+    // return false;
+    // }(),
+    // NavigationResultScreen s => () {
+    // NavigationBloc.navigateToSecondScreen(
+    // context: context, screenType: s.data.screenType);
+    // return false;
+    // }(),
+    // };
     return Scaffold(
       appBar: null,
       body: Stack(
