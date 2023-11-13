@@ -1,3 +1,4 @@
+import 'package:app_main/config/theme/theme_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'i_theme.dart';
@@ -13,18 +14,8 @@ final class DarkTheme extends BaseTheme {
       appBarTheme: appBarTheme,
       useMaterial3: true,
       textTheme: textTheme,
-      iconButtonTheme: const IconButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStatePropertyAll<Color>(Colors.white60),
-        ),
-      ),
-      iconTheme: const IconThemeData(color: Colors.white),
+      iconTheme: const IconThemeData(color: ThemeConstatnts.iconDark),
+      cardColor: ThemeConstatnts.cardDark,
     );
-  }
-
-  @override
-  BlurColors getBlur() {
-    return const BlurColors(
-        first: Colors.deepPurple, second: Colors.orangeAccent);
   }
 }
